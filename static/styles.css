@@ -1,0 +1,13 @@
+body{
+    text-align: center;
+    font-family: 'Times New Roman' , Times, serif;
+    background-color:  antiquewhite;
+}
+
+.heading{
+    padding: 70px;
+}
+
+.col-form-label{
+    text-align: left;
+}
