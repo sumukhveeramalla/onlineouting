@@ -1,3 +1,4 @@
+from telnetlib import STATUS
 from django.db import models
 from django.forms import BooleanField
 from django.db import models
@@ -14,3 +15,6 @@ class student(models.Model):
     Residence = models.CharField(max_length=100)
     year = models.CharField(max_length=30)
     phoneNo = models.CharField(max_length=10)
+    status = models.CharField(max_length=30,blank=True)
+
+    

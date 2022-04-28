@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <div class="heading"><h1 >Student Login: </h1></div>
+   <div class="heading"><h1 >Student Login: </h1></div>   
     <form action="login" method="post">
        {% csrf_token %}
         <input type="text" name="username" placeholder="username"><br><br>

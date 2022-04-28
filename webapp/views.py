@@ -1,7 +1,9 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from .models import student
+from .forms import studentForm,studentFormOne
 
 # Create your views here.
 def index(request):
@@ -47,8 +49,21 @@ def adminlogin(request):
     else:
         return render(request,'adminlogin.html')
 
-
 def actual(request):
+    submitted = False
+    if request.method == "POST":
+        form = studentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request,"index.html")
+    else:
+        form = studentForm
+        if 'submitted' in request.GET:
+            submitted = True
+
+    return render(request,'actual.html',{'form':form})
+'''def actual(request):
+
     if request.method == 'POST':
         print("Hi")
         if request.POST.get('name') and request.POST.get('rollno') and request.POST.get('Residence') and request.POST.get('phoneNo') and request.POST.get('year') and request.POST.get('description') and request.POST.get('prefer'):
@@ -72,12 +87,21 @@ def actual(request):
         return render(request,'actual.html')  
         # return redirect('home')
         #return redirect("actual")
-
+'''
 def display(request):
     stds = student.objects.all()
     return render(request,'display.html',{'stds' : stds})
 
 
-def acceptLeaveRequest():
-    
-    pass
+def update_student(request, student_id):
+    stud = student.objects.get(pk=student_id)
+    form = studentFormOne(request.POST or None, instance=stud)
+    if form.is_valid():
+        form.save()
+        return redirect('display')
+
+    return render(request, 'update_student.html',{'stud' : stud,'form':form})
+
+def result(request,student_id):
+    stds = student.objects.get(pk=student_id)
+    return render(request,'result.html',{'stds': stds})

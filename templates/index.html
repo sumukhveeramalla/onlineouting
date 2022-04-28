@@ -9,6 +9,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
     <!--<script src="index.js"></script>-->
+    <style>
+      body {
+        background-image: url('img.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+    </style>
   </head>
   <body>
     <!--<h1>LeT's Get the Tickets</h1>-->
@@ -23,14 +31,15 @@
 
       <ul class="navbar-nav ms-auto">
         {% if user.is_authenticated and user.is_staff %}
-        <li class="navbar-item"><a href="logout" class="btn btn-md btn-dark" id="show-login">Hello, {{user.first_name}}</li>
+        <li class="navbar-item"><a href="logout" class="btn btn-md btn-dark" id="show-login">Hello, {{user.first_name}}</a></li>
         <li class="navbar-item"><a href="logout" class="btn btn-md btn-dark" id="show-login">Logout</a></li>
         <li class="navbar-item"><a href="display" class="btn btn-md btn-dark" id="show-login">Outing Permissions</a></li>
         {% elif user.is_authenticated %}
-        <li class="navbar-item"><a href="logout" class="btn btn-md btn-dark" id="show-login">Hello, {{user.first_name}}</li>
+        <li></li>
+        <li class="navbar-item"><a href="logout" class="btn btn-md btn-dark" id="show-login">Hello, {{user.first_name}}</a></li>
         <li class="navbar-item"><a href="logout" class="btn btn-md btn-dark" id="show-login">Logout</a></li>
+        <li class="navbar-item"><a href="display" class="btn btn-md btn-dark" >Result</a></li>
         <li class="navbar-item"><a href="actual" class="btn btn-md btn-dark" id="show-login">Online Outing Permissions</a></li>
-        
         {% else %}
         <li class="navbar-item"><a href="login" class="btn btn-md btn-dark" id="show-login">Student Login</a></li>
         <li class="navbar-item"><a href="adminlogin" class="btn btn-md btn-dark" id="show-login">Admin Login</a></li>

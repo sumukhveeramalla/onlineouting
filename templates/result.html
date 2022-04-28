@@ -1,4 +1,4 @@
-{%load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,23 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles.css' %}" >
 </head>
-<body class="displayBody">
-    {% block content %}
-    <h1>Outing Permissions Asked:</h1>
+<body>
     
-    <form action="" method="POST"></form>
-    {% for std in stds %}
-    {% if std.status == ''%}
-    <div class="div1" style="text-align: left;">
-    <p style="display: inline;">Name: {{std.name}} </p>
-        <p style="display: inline;">Roll Number: {{std.rollnumber}} </p>
-        <a href="{% url 'update_student' std.id %}" class="btn btn-secondary">Update</a>
-    </div>
-    {% endif %}
-    {% endfor %}
+    {% block content %}
     <h1>Accepted Permissions:</h1>
     {% for std in stds %}
     {% if std.status == 'yes'%}
@@ -43,7 +31,6 @@
     </div>
     {% endif %}
     {% endfor %}
-    
     {% endblock %}
 </body>
 </html>

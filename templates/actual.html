@@ -11,11 +11,18 @@
     <!-- <link rel="stylesheet" href="{% static 'styles.css' %}">-->
 </head>
 <body >
+    {% block content %}
     
     <div class="heading"><h1 >Online Outing Permissions:</h1></div>
+    <div>
+    {% if submitted %}
+         Your form is submitted successfully
+    {% else %}
     <form action="actual" method="POST" >
        {% csrf_token %}
-        <label for="name" class="col-sm-2 col-form-label" >Name: </label>                                                       
+       {{ form.as_p }}
+       <input type="submit" value="Submit" class="btn btn-primary">
+        <!--<label for="name" class="col-sm-2 col-form-label" >Name: </label>                                                       
         <input type="text" name = "name" placeholder="name"><br><br>
         <label for="rollno" class="col-sm-2 col-form-label"class="form-label" >Roll Number: </label>
         <input type="text" name="rollno" placeholder="Roll Number"><br><br>
@@ -29,8 +36,11 @@
         <input type="text" name = "description" placeholder="Description"><br><br>
         <label for="prefer" class="col-sm-2 col-form-label" >Willing to take?</label>
         <input type="text" name="prefer" placeholder="Local Or Non Local"><br><br>
-        <input type="submit" class="btn btn-primary">
+        <input type="submit" class="btn btn-primary">-->
     </form>
+    </div>
+    {% endif %}
+    {% endblock %}
 
 </body>
 </html>
