@@ -102,6 +102,6 @@ def update_student(request, student_id):
 
     return render(request, 'update_student.html',{'stud' : stud,'form':form})
 
-def result(request,student_id):
-    stds = student.objects.get(pk=student_id)
+def result(request):
+    stds = student.objects.all()
     return render(request,'result.html',{'stds': stds})
