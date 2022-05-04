@@ -31,7 +31,7 @@
     {% if submitted %}
          Your form is submitted successfully
     {% else %}
-    <form action="actual" method="POST" >
+    <form action="actual" method="POST" class="forming1">
        {% csrf_token %}
        {{ form.as_p }}
        <input type="submit" value="Submit" class="btn btn-primary">
