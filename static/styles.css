@@ -6,18 +6,22 @@ body{
 
 
 .heading{
-    padding: 50px 30px 20px 30px;
+    padding: 50px 100px 10px 450px;
     margin-left: 200px;
 }
 
+.h1class{
+    padding: 10px 10px 10px 575px;
+}
+
 .forming1{
-    padding: 50px 30px 20px 30px;
+    padding: 50px 100px 50px 450px;
     margin-left: 200px;
 }
 
 table{
     margin: 300px;
-    color:green;
+    color:black;
 }
 .center{
     margin-left: auto;

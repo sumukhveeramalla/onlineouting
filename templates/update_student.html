@@ -12,9 +12,9 @@
 <body>
     {% block content %}
     
-    <h1>Update Student</h1>
+    <h1 class="heading" >Update Student</h1>
     <br>
-    <form action="" method="POST">
+    <form action="" method="POST" class="forming1">
         {% csrf_token %}
         {{ form.as_p }}
         <br/>

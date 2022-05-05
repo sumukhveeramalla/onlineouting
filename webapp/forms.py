@@ -24,12 +24,12 @@ class studentFormOne(ModelForm):
         model = student
         fields = ('__all__')
         widgets = {
-            'name' : forms.TextInput(attrs={'class':'form-control'}),
-            'rollnumber': forms.NumberInput(attrs={'class':'form-control'}),
-            'description':forms.TextInput(attrs={'class':'form-control'}),
-            'prefer':forms.TextInput(attrs={'class':'form-control'}),
-            'Residence':forms.TextInput(attrs={'class':'form-control'}),
-            'year':forms.TextInput(attrs={'class':'form-control'}),
-            'phoneNo':forms.TextInput(attrs={'class':'form-control'}),
-            'status':forms.TextInput(attrs={'class':'form-control'})
+            'name' : forms.TextInput(attrs={'style': 'width:50%','style':'text-align: center', 'Style' : 'vertical-align:middle','placeholder':'Name'}),
+            'rollnumber': forms.NumberInput(attrs={'placeholder':'Roll Number:'}),
+            'description':forms.TextInput(attrs={'placeholder':'Reason'}),
+            'prefer':forms.TextInput(attrs={'placeholder':'Local OR Non Local'}),
+            'Residence':forms.TextInput(attrs={'placeholder':'Hostel Block'}),
+            'year':forms.TextInput(attrs={'placeholder':'Year Studying'}),
+            'phoneNo':forms.TextInput(attrs={'placeholder':'Phone Number'}),
+            'status':forms.TextInput(attrs={'placeholder':'yes or no'})
         }
