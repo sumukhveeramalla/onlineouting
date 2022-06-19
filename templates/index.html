@@ -25,10 +25,15 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
       <ul class="navbar-nav ms-auto">
-        {% if user.is_authenticated and user.is_staff %}
+        {% if user.is_authenticated and user.is_staff and user.is_superuser %}
         <li style=" font-size:larger" class="navbar-item"><a href="logout" class="btn btn-md btn-dark" id="show-login">Hello, {{user.first_name}}</a></li>
         <li style=" font-size:larger" class="navbar-item"><a href="logout" class="btn btn-md btn-dark" id="show-login">Logout</a></li>
         <li style=" font-size:larger" class="navbar-item"><a href="display" class="btn btn-md btn-dark" id="show-login">Outing Permissions</a></li>
+        {% elif user.is_authenticated and user.is_staff %}
+        <li></li>
+        <li style=" font-size:larger" class="navbar-item"><a href="logout" class="btn btn-md btn-dark" id="show-login">Hello, {{user.first_name}}</a></li>
+        <li style=" font-size:larger" class="navbar-item"><a href="logout" class="btn btn-md btn-dark" id="show-login">Logout</a></li>
+        <li style=" font-size:larger" class="navbar-item"><a href="result" class="btn btn-md btn-dark" >Result</a></li>
         {% elif user.is_authenticated %}
         <li></li>
         <li style=" font-size:larger" class="navbar-item"><a href="logout" class="btn btn-md btn-dark" id="show-login">Hello, {{user.first_name}}</a></li>
@@ -37,6 +42,7 @@
         <li style=" font-size:larger" class="navbar-item"><a href="actual" class="btn btn-md btn-dark" id="show-login">Online Outing Permissions</a></li>
         {% else %}
         <li class="navbar-item"><a href="login" class="btn btn-md btn-dark" id="show-login">Student Login</a></li>
+        <li class="navbar-item"><a href="security" class="btn btn-md btn-dark" id="show-login">Security Login</a></li>
         <li class="navbar-item"><a href="adminlogin" class="btn btn-md btn-dark" id="show-login">Admin Login</a></li>
         {% endif %}
 

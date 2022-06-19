@@ -49,6 +49,25 @@ def adminlogin(request):
     else:
         return render(request,'adminlogin.html')
 
+def security(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = auth.authenticate(username=username,password=password)
+
+        if user is not None:
+            auth.login(request, user)
+            #return render(request,'Project.html')
+            return redirect('home')
+            #return redirect('')
+        else:
+            messages.info(request,'invalid credentials')
+            return redirect('security')
+    
+    else:
+        return render(request,'security.html')
+
 def actual(request):
     submitted = False
     if request.method == "POST":
@@ -62,32 +81,7 @@ def actual(request):
             submitted = True
 
     return render(request,'actual.html',{'form':form})
-'''def actual(request):
 
-    if request.method == 'POST':
-        print("Hi")
-        if request.POST.get('name') and request.POST.get('rollno') and request.POST.get('Residence') and request.POST.get('phoneNo') and request.POST.get('year') and request.POST.get('description') and request.POST.get('prefer'):
-            print("Hi")
-            post=student()
-            post.name = request.POST.get('name')
-            post.rollnumber = request.POST.get('rollno')
-            post.Residence = request.POST.get('Residence')
-            post.phoneNo = request.POST.get('phoneNo')
-            post.year = request.POST.get('year')
-            post.description = request.POST.get('description')
-            post.prefer = request.POST.get('prefer')
-            post.save()
-            print(request.POST.get('prefer'))
-
-            # return HttpResponseRedirect("http://127.0.0.1:8000/")
-            return render(request,"index.html")
-            #return redirect('home')
-    else:
-        # messages.info(request,"Invalid Credentials")
-        return render(request,'actual.html')  
-        # return redirect('home')
-        #return redirect("actual")
-'''
 def display(request):
     stds = student.objects.all()
     return render(request,'display.html',{'stds' : stds})
